@@ -1,0 +1,16 @@
+[
+{
+  "modid": "automod",
+  "name": "AutoMod",
+  "description": "A simple mod designed to automatically press keys/mouse buttons for you.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "http://github.com/shadowfacts/AutoMod",
+  "updateUrl": "",
+  "authorList": ["shadowfacts"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
