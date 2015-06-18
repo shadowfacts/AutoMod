@@ -32,8 +32,15 @@ minecraft {
 	replace '@VERSION@', "$mod_version"
 }
 
-dependencies {
+repositories {
+	maven {
+		name = "shadowfacts"
+		url = "http://maven.shadowfacts.net"
+	}
+}
 
+dependencies {
+	compile group: 'net.shadowfacts', name: 'ShadowAPI', version: '1.7.10-2.0.0', classifier: 'deobf'
 }
 
 processResources
