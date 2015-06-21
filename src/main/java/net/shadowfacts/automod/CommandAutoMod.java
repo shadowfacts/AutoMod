@@ -21,8 +21,7 @@ public class CommandAutoMod implements ISubCommand {
 
 	@Override
 	public void handleCommand(ICommandSender sender, String[] args) {
-//		TODO: Open the gui
-//		TODO: Make the gui
+		AutoMod.proxy.displayGuiScreen(new GuiAutoMod());
 	}
 
 	@Override
