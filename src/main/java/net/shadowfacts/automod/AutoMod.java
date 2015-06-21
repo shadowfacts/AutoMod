@@ -3,9 +3,11 @@ package net.shadowfacts.automod;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import net.minecraft.client.settings.KeyBinding;
+import net.shadowfacts.automod.proxy.CommonProxy;
 import net.shadowfacts.shadowapi.command.CommandHandler;
 import net.shadowfacts.shadowapi.config.ConfigManager;
 import net.shadowfacts.shadowapi.util.Log;
@@ -20,6 +22,9 @@ public class AutoMod {
 	public static final String id = "automod";
 	public static final String name = "AutoMod";
 	public static final String version = "@VERSION@";
+
+	@SidedProxy(serverSide = "net.shadowfacts.automod.proxy.CommonProxy", clientSide = "net.shadowfacts.automod.proxy.ClientProxy")
+	public static CommonProxy proxy;
 
 	public static Log logger = new Log("AutoMod");
 
