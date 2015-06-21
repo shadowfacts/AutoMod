@@ -1,5 +1,6 @@
 package net.shadowfacts.automod;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 
@@ -8,13 +9,27 @@ import net.minecraft.client.gui.GuiScreen;
  */
 public class GuiAutoMod extends GuiScreen {
 
-	private GuiButton setKeybind = new GuiButton(0, 0, 0, "Set Keybind");
-	private GuiButton openConfigGui = new GuiButton(0, 300, 300, "Open Config GUI");
+	private GuiButton setKeybind;
+	private GuiButton openConfigGui;
+	private GuiButton close;
 
 	@Override
 	public void initGui() {
+		mc = Minecraft.getMinecraft();
+
+		setKeybind = new GuiButton(3654, 0, 0, "Set Keybind");
+		openConfigGui = new GuiButton(3655, 0, 100, "Open Config GUI");
+		close = new GuiButton(1599, 500, 100, 100, 100, "x");
+
+
 		buttonList.add(setKeybind);
 		buttonList.add(openConfigGui);
+		buttonList.add(close);
+	}
+
+	@Override
+	protected void actionPerformed(GuiButton p_146284_1_) {
+		super.actionPerformed(p_146284_1_);
 	}
 
 	@Override
@@ -23,13 +38,12 @@ public class GuiAutoMod extends GuiScreen {
 	}
 
 	@Override
-	public void drawScreen(int p_73863_1_, int p_73863_2_, float p_73863_3_) {
-		super.drawScreen(p_73863_1_, p_73863_2_, p_73863_3_);
+	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
+		super.drawScreen(mouseX, mouseY, partialTicks);
 	}
 
 	@Override
-
-	public void drawBackground(int p_146278_1_) {
-		super.drawBackground(p_146278_1_);
+	public void drawBackground(int tint) {
+		super.drawBackground(tint);
 	}
 }
