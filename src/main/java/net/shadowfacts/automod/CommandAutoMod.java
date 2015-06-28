@@ -1,5 +1,6 @@
 package net.shadowfacts.automod;
 
+import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.ChatComponentText;
 import net.shadowfacts.shadowapi.command.ISubCommand;
@@ -9,7 +10,7 @@ import java.util.List;
 /**
  * @author shadowfacts
  */
-public class CommandAutoMod implements ISubCommand {
+public class CommandAutoMod extends CommandBase {
 
 	public static CommandAutoMod instance = new CommandAutoMod();
 
@@ -20,7 +21,12 @@ public class CommandAutoMod implements ISubCommand {
 	}
 
 	@Override
-	public void handleCommand(ICommandSender sender, String[] args) {
+	public String getCommandUsage(ICommandSender sender) {
+		return "Opens the GUI to set the key/mouse button for AutoMod.";
+	}
+
+	@Override
+	public void processCommand(ICommandSender sender, String[] args) {
 		AutoMod.proxy.displayGuiScreen(new GuiAutoMod());
 	}
 
@@ -29,8 +35,4 @@ public class CommandAutoMod implements ISubCommand {
 		return null;
 	}
 
-	@Override
-	public void handleHelpRequest(ICommandSender sender, String[] args) {
-		sender.addChatMessage(new ChatComponentText("Opens the GUI to set the key/mouse button for AutoMod."));
-	}
 }

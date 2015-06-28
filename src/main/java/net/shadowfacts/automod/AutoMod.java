@@ -1,5 +1,6 @@
 package net.shadowfacts.automod;
 
+import akka.io.Tcp;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
@@ -8,7 +9,6 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import net.minecraft.client.settings.KeyBinding;
 import net.shadowfacts.automod.proxy.CommonProxy;
-import net.shadowfacts.shadowapi.command.CommandHandler;
 import net.shadowfacts.shadowapi.config.ConfigManager;
 import net.shadowfacts.shadowapi.shadowlib.log.Logger;
 import org.lwjgl.input.Keyboard;
@@ -32,6 +32,8 @@ public class AutoMod {
 
 	public static boolean isEnabled = false;
 
+	public static boolean setKeybindMode = false;
+
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		ConfigManager.instance.configDirPath = event.getModConfigurationDirectory().getAbsolutePath();
@@ -45,8 +47,7 @@ public class AutoMod {
 
 	@Mod.EventHandler
 	public void serverLoad(FMLServerStartingEvent event) {
-		CommandHandler.registerSubCommand(CommandAutoMod.instance);
-		CommandHandler.initCommands(event);
+		event.registerServerCommand(CommandAutoMod.instance);
 	}
 
 

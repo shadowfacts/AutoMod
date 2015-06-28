@@ -11,25 +11,24 @@ public class GuiAutoMod extends GuiScreen {
 
 	private GuiButton setKeybind;
 	private GuiButton openConfigGui;
-	private GuiButton close;
 
 	@Override
 	public void initGui() {
 		mc = Minecraft.getMinecraft();
 
 		setKeybind = new GuiButton(3654, 0, 0, "Set Keybind");
-		openConfigGui = new GuiButton(3655, 0, 100, "Open Config GUI");
-		close = new GuiButton(1599, 500, 100, 100, 100, "x");
+		openConfigGui = new GuiButton(3655, 0, 50, "Open Config GUI");
 
 
 		buttonList.add(setKeybind);
 		buttonList.add(openConfigGui);
-		buttonList.add(close);
 	}
 
 	@Override
-	protected void actionPerformed(GuiButton p_146284_1_) {
-		super.actionPerformed(p_146284_1_);
+	protected void actionPerformed(GuiButton button) {
+		if (button.id == setKeybind.id) {
+			AutoMod.setKeybindMode = true;
+		}
 	}
 
 	@Override
