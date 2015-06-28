@@ -10,7 +10,7 @@ import net.minecraft.client.settings.KeyBinding;
 import net.shadowfacts.automod.proxy.CommonProxy;
 import net.shadowfacts.shadowapi.command.CommandHandler;
 import net.shadowfacts.shadowapi.config.ConfigManager;
-import net.shadowfacts.shadowapi.util.Log;
+import net.shadowfacts.shadowapi.shadowlib.log.Logger;
 import org.lwjgl.input.Keyboard;
 
 /**
@@ -26,7 +26,7 @@ public class AutoMod {
 	@SidedProxy(serverSide = "net.shadowfacts.automod.proxy.CommonProxy", clientSide = "net.shadowfacts.automod.proxy.ClientProxy")
 	public static CommonProxy proxy;
 
-	public static Log logger = new Log("AutoMod");
+	public static Logger logger = new Logger("AutoMod");
 
 	public static KeyBinding mainKeybind;
 
